@@ -1,5 +1,4 @@
 # War Thunder SQB Helper
-:gb:
 
 An Android application created to help tracking numbers of remainig ally and enemy units in War Thunder SQB Battles.
 
