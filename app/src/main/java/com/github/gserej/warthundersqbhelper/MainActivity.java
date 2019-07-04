@@ -1,9 +1,7 @@
 package com.github.gserej.warthundersqbhelper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ParseJSON.OnDataAvailable {

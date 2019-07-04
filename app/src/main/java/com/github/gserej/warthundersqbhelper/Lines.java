@@ -1,7 +1,5 @@
 package com.github.gserej.warthundersqbhelper;
 
-import java.util.Objects;
-
 public class Lines {
 
     private String id;
