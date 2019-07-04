@@ -10,4 +10,4 @@ An Android application created to help tracking numbers of remainig ally and ene
 5. Press "Reset" button every time you start a battle.
 
 ## Download
-[Here](WTSQBHelper.apk)
+[Here](https://github.com/gserej/WarThunderSQBHelper/raw/master/WTSQBHelper.apk)
