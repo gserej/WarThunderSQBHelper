@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/ourTanksIcon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/our_tank_logo"
+        tools:srcCompat="@drawable/our_tank_logo" />
+
+    <ImageView
+        android:id="@+id/enemyPlaneIcon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon"
+        app:srcCompat="@drawable/enemy_plane_logo"
+        tools:srcCompat="@drawable/enemy_plane_logo" />
+
+    <ImageView
+        android:id="@+id/ourPlanesIcon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/ourTanksIcon"
+        app:layout_constraintTop_toBottomOf="@+id/ourTanksIcon"
+        app:srcCompat="@drawable/our_plane_logo"
+        tools:srcCompat="@drawable/our_plane_logo" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/textViewStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ourPlanesView" />
+
+    <TextView
+        android:id="@+id/ourTanksView"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="24"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/ourTanksIcon"
+        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon" />
+
+    <TextView
+        android:id="@+id/enemyTanksView"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="24"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/enemyTanksIcon"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon" />
+
+    <TextView
+        android:id="@+id/ourPlanesView"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="16"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/ourPlanesIcon"
+        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon" />
+
+    <TextView
+        android:id="@+id/enemyPlanesView"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="16"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/enemyPlaneIcon"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon" />
+
+    <ImageView
+        android:id="@+id/enemyTanksIcon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon"
+        app:srcCompat="@drawable/enemy_tank_logo"
+        tools:srcCompat="@drawable/enemy_tank_logo" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Connection status:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</android.support.constraint.ConstraintLayout>
