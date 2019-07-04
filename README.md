@@ -9,5 +9,8 @@ An Android application created to help tracking numbers of remainig ally and ene
 4. At the moment the application works only when War Thunder ingame language is set to English.
 5. Press "Reset" button every time you start a battle.
 
+## Changelog
+v0.1 - first version
+
 ## Download
 [Here](https://github.com/gserej/WarThunderSQBHelper/raw/master/WTSQBHelper.apk)
