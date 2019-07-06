@@ -2,6 +2,7 @@ package com.github.gserej.warthundersqbhelper;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,31 +11,26 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-
 enum DownloadStatus {IDLE, PROCESSING, NOT_INITIALISED, FAILED_OR_EMPTY, OK}
 
 class GetRawData extends AsyncTask<String, Void, String> {
 
-    interface OnDownloadComplete{
-        void onDownloadComplete(String data, DownloadStatus status);
-    }
-
     private static final String TAG = "GetRawData";
-
-    private DownloadStatus mDownloadStatus;
     private final OnDownloadComplete mCallback;
+    private DownloadStatus mDownloadStatus;
 
     GetRawData(OnDownloadComplete callback) {
         this.mDownloadStatus = DownloadStatus.IDLE;
         mCallback = callback;
     }
 
-    void runInSameThread(String s){
-        if(mCallback != null) {
+    void runInSameThread(String s) {
+        if (mCallback != null) {
             String result = doInBackground(s);
             mCallback.onDownloadComplete(result, mDownloadStatus);
         }
     }
+
     @Override
     protected String doInBackground(String... strings) {
         HttpURLConnection connection = null;
@@ -93,9 +89,13 @@ class GetRawData extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        if(mCallback != null){
+        if (mCallback != null) {
             mCallback.onDownloadComplete(s, mDownloadStatus);
         }
+    }
+
+    interface OnDownloadComplete {
+        void onDownloadComplete(String data, DownloadStatus status);
     }
 
 

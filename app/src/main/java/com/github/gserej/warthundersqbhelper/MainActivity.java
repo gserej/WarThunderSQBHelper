@@ -17,27 +17,21 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ParseJSON.OnDataAvailable {
+    public static final String ID_HIGH = "ID_HIGH";
     private static final String TAG = "MainActivity";
-
+    public static String ipAddress = "192.168.1.1";
     static Units units = new Units();
-
+    private static String status;
+    private static int idHigh;
     private TextView displayOurTanks;
     private TextView displayOurPlanes;
     private TextView displayEnemyTanks;
     private TextView displayEnemyPlanes;
-
     private TextView mConnectionStatus;
-    private static String status;
 
     public static void setStatus(String status) {
         MainActivity.status = status;
     }
-
-    private static int idHigh;
-
-    public static final String ID_HIGH = "ID_HIGH";
-
-    public static String ipAddress = "192.168.1.1";
 
     public static void setIpAddress(String ipAddress) {
         MainActivity.ipAddress = ipAddress;
@@ -49,6 +43,22 @@ public class MainActivity extends AppCompatActivity implements ParseJSON.OnDataA
 
     public static void setIdHigh(int idHigh) {
         MainActivity.idHigh = idHigh;
+    }
+
+    public static void lowerEnemyTanks() {
+        units.enemyTankDown();
+    }
+
+    public static void lowerOurTanks() {
+        units.ourTankDown();
+    }
+
+    public static void lowerEnemyPlanes() {
+        units.enemyPlaneDown();
+    }
+
+    public static void lowerOurPlanes() {
+        units.ourPlaneDown();
     }
 
     @Override
@@ -108,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements ParseJSON.OnDataA
         setIpAddress(pref.getString("ipAddress", "192.168.1.1"));
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings, menu);
@@ -136,22 +145,6 @@ public class MainActivity extends AppCompatActivity implements ParseJSON.OnDataA
             e.printStackTrace();
             Log.e("MainActivity_TSK", "Error: " + e.toString());
         }
-    }
-
-    public static void lowerEnemyTanks() {
-        units.enemyTankDown();
-    }
-
-    public static void lowerOurTanks() {
-        units.ourTankDown();
-    }
-
-    public static void lowerEnemyPlanes() {
-        units.enemyPlaneDown();
-    }
-
-    public static void lowerOurPlanes() {
-        units.ourPlaneDown();
     }
 
     @Override

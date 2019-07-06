@@ -17,25 +17,19 @@ import java.util.regex.Pattern;
 public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements GetRawData.OnDownloadComplete {
 
     private static final String TAG = "ParseJSON";
+    private static String tagName;
+    private final OnDataAvailable mCallBack;
     private List<Lines> linesList = null;
     private String mBaseURL;
-
-    private final OnDataAvailable mCallBack;
-
     private boolean runningOnSameThread = false;
-    private static String tagName;
-
-    static void setTagName(String tagName) {
-        ParseJSON.tagName = tagName;
-    }
-
-    interface OnDataAvailable {
-        void onDataAvailable(List<Lines> data, DownloadStatus status);
-    }
 
     ParseJSON(OnDataAvailable callBack, String baseURL) {
         mBaseURL = baseURL;
         mCallBack = callBack;
+    }
+
+    static void setTagName(String tagName) {
+        ParseJSON.tagName = tagName;
     }
 
     @Override
@@ -58,17 +52,17 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
 
         int idTemp;
 
-        Pattern r11 = Pattern.compile("."+tagName+".+destroyed");
-        Pattern r12 = Pattern.compile("^(?!."+tagName+".).*has been wrecked$");
+        Pattern r11 = Pattern.compile("." + tagName + ".+destroyed");
+        Pattern r12 = Pattern.compile("^(?!." + tagName + ".).*has been wrecked$");
 
-        Pattern r21 = Pattern.compile("destroyed.+."+tagName+".");
-        Pattern r22 = Pattern.compile("^."+tagName+".+has been wrecked$");
+        Pattern r21 = Pattern.compile("destroyed.+." + tagName + ".");
+        Pattern r22 = Pattern.compile("^." + tagName + ".+has been wrecked$");
 
-        Pattern r31 = Pattern.compile("."+tagName+".+shot down");
-        Pattern r32 = Pattern.compile("^(?!."+tagName+".).+has crashed.$");
+        Pattern r31 = Pattern.compile("." + tagName + ".+shot down");
+        Pattern r32 = Pattern.compile("^(?!." + tagName + ".).+has crashed.$");
 
-        Pattern r41 = Pattern.compile("shot down.+"+tagName+".");
-        Pattern r42 = Pattern.compile("^."+tagName+".+has crashed.$");
+        Pattern r41 = Pattern.compile("shot down.+" + tagName + ".");
+        Pattern r42 = Pattern.compile("^." + tagName + ".+has crashed.$");
 
         boolean found;
 //        Log.d(TAG, "onDownloadComplete: starts. Status = " + status);
@@ -128,7 +122,7 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
 //                        Lines lineObject = new Lines(id, message);
 //                        linesList.add(lineObject);
 //                        Log.d(TAG, "onDownloadComplete: " + lineObject.toString());
-                       Log.d(TAG, "onDownloadComplete: " + message);
+                            Log.d(TAG, "onDownloadComplete: " + message);
                         }
                     }
 
@@ -142,6 +136,10 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
         if (runningOnSameThread && mCallBack != null) {
             mCallBack.onDataAvailable(linesList, status);
         }
+    }
+
+    interface OnDataAvailable {
+        void onDataAvailable(List<Lines> data, DownloadStatus status);
     }
 
 

@@ -37,19 +37,19 @@ class Units {
         return enemyPlanes;
     }
 
-    void ourTankDown(){
+    void ourTankDown() {
         ourTanks--;
     }
 
-    void ourPlaneDown(){
+    void ourPlaneDown() {
         ourPlanes--;
     }
 
-    void enemyTankDown(){
+    void enemyTankDown() {
         enemyTanks--;
     }
 
-    void enemyPlaneDown(){
+    void enemyPlaneDown() {
         enemyPlanes--;
     }
 
