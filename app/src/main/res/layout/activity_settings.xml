@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="You need to set WarThunder language to English or Polish in order to run this application correctly"
+        android:text="You need to set War Thunder language to English in order to run this application correctly."
         app:layout_constraintBottom_toTopOf="@+id/textViewVersion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewVersion" />
