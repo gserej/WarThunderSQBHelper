@@ -3,7 +3,7 @@
 An Android application created to help tracking numbers of remainig ally and enemy units in War Thunder Squadron Battles.
 
 ## Prerequisites:
-1. Check [the local IP adress of the PC](https://kb.wisc.edu/27309) you are running War Thunder on.
+1. Check [the local IP address of the PC](https://kb.wisc.edu/27309) you are running War Thunder on.
 2. While connected to a local WiFi network with your phone/tablet, check if you can access this IP via a browser. If not, application won't work.
 3. In the application settings menu type in your squadron tag and that IP adress.
 

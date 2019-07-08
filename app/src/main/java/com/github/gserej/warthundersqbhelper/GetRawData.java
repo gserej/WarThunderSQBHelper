@@ -67,7 +67,7 @@ class GetRawData extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             Log.e(TAG, "doInBackground: IO Exception reading data. " + e.getMessage());
             MainActivity.setStatus("Cannot connect. Check if the game is running, if you are connected to the same WiFi network as your PC running War Thunder and" +
-                    " if you have entered correct IP address in settings menu");
+                    " if you have entered a correct IP address in the settings menu");
         } catch (SecurityException e) {
             Log.e(TAG, "doInBackground: Security Exception. Need permission? " + e.getMessage());
             MainActivity.setStatus("Error: Check if the application has been granted permissions");
