@@ -11,6 +11,7 @@ An Android application created to help tracking numbers of remainig ally and ene
 - Press the "Reset" button every time you start a battle to reset numbers.
 
 ## Changelog
+v0.2 - added Polish language support, fixed typos
 v0.1 - first version
 
 ## Download
