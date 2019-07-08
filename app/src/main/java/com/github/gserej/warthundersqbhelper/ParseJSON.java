@@ -73,8 +73,8 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
         Pattern r11_pl = Pattern.compile("." + tagName + ".+zniszczył");
         Pattern r12_pl = Pattern.compile("^(?!." + tagName + ".).*został rozbity$");
 
-        Pattern r21_pl = Pattern.compile("zniszczył.+." + tagName + "."); //ok
-        Pattern r22_pl = Pattern.compile("^." + tagName + ".+został rozbity$"); //ok
+        Pattern r21_pl = Pattern.compile("zniszczył.+." + tagName + ".");
+        Pattern r22_pl = Pattern.compile("^." + tagName + ".+został rozbity$");
 
         Pattern r31_pl = Pattern.compile("." + tagName + ".+zestrzelił");
         Pattern r32_pl = Pattern.compile("^(?!." + tagName + ".).+rozbił się$");
