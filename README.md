@@ -7,12 +7,12 @@ An Android application created to help tracking numbers of remainig ally and ene
 2. While connected to a local WiFi network with your phone/tablet, check if you can access this IP via a browser. If not, application won't work.
 3. In the application settings menu type in your squadron tag and that IP adress.
 
-- At the moment the application works only when War Thunder ingame language is set to English. Later on I'll add support for Polish language.
+- At the moment the application works only when the War Thunder in-game language is set to English or Polish.
 - Press the "Reset" button every time you start a battle to reset numbers.
 
 ## Changelog
-v0.2 - added Polish language support, fixed typos
-v0.1 - first version
+- v0.2 - added Polish language support, fixed typos
+- v0.1 - first version
 
 ## Download
-[Here](https://github.com/gserej/WarThunderSQBHelper/raw/master/app/release/WT_SQB_Helper_v0.1.apk)
+[Here](https://github.com/gserej/WarThunderSQBHelper/raw/master/app/release/WT_SQB_Helper_v0.2.apk)
