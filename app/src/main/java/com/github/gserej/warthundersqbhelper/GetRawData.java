@@ -66,11 +66,11 @@ class GetRawData extends AsyncTask<String, Void, String> {
             Log.e(TAG, "doInBackground:  Invalid URL. " + e.getMessage());
         } catch (IOException e) {
             Log.e(TAG, "doInBackground: IO Exception reading data. " + e.getMessage());
-            MainActivity.setStatus("Cannot connect. Check if you are connected to same WiFi network as your PC running WarThunder and" +
-                    " if you have entered right IP address in settings menu");
+            MainActivity.setStatus("Cannot connect. Check if the game is running, if you are connected to the same WiFi network as your PC running War Thunder and" +
+                    " if you have entered correct IP address in settings menu");
         } catch (SecurityException e) {
             Log.e(TAG, "doInBackground: Security Exception. Need permission? " + e.getMessage());
-            MainActivity.setStatus("Error: Check if application has been granted permissions");
+            MainActivity.setStatus("Error: Check if the application has been granted permissions");
         } finally {
             if (connection != null) {
                 connection.disconnect();

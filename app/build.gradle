@@ -1,13 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\Grzesiek\\Desktop\\keystore.jks')
+            storePassword 'a7b422a7b42'
+            keyAlias = 'origin'
+            keyPassword 'a7b423a7b42'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.github.gserej.warthundersqbhelper"
         minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
-        versionName "v0.1"
+        versionName "v0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -52,17 +52,35 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
 
         int idTemp;
 
-        Pattern r11 = Pattern.compile("." + tagName + ".+destroyed");
-        Pattern r12 = Pattern.compile("^(?!." + tagName + ".).*has been wrecked$");
 
-        Pattern r21 = Pattern.compile("destroyed.+." + tagName + ".");
-        Pattern r22 = Pattern.compile("^." + tagName + ".+has been wrecked$");
+        //enemy tank killed or crashed
+        Pattern r11_en = Pattern.compile("." + tagName + ".+destroyed");
+        Pattern r12_en = Pattern.compile("^(?!." + tagName + ".).*has been wrecked$");
 
-        Pattern r31 = Pattern.compile("." + tagName + ".+shot down");
-        Pattern r32 = Pattern.compile("^(?!." + tagName + ".).+has crashed.$");
+        //ally tank killed or crashed
+        Pattern r21_en = Pattern.compile("destroyed.+." + tagName + ".");
+        Pattern r22_en = Pattern.compile("^." + tagName + ".+has been wrecked$");
 
-        Pattern r41 = Pattern.compile("shot down.+" + tagName + ".");
-        Pattern r42 = Pattern.compile("^." + tagName + ".+has crashed.$");
+        //enemy plane shot down or crashed
+        Pattern r31_en = Pattern.compile("." + tagName + ".+shot down");
+        Pattern r32_en = Pattern.compile("^(?!." + tagName + ".).+has crashed.$");
+
+        //ally plane shot down or crashed
+        Pattern r41_en = Pattern.compile("shot down.+" + tagName + ".");
+        Pattern r42_en = Pattern.compile("^." + tagName + ".+has crashed.$");
+
+
+        Pattern r11_pl = Pattern.compile("." + tagName + ".+zniszczył");
+        Pattern r12_pl = Pattern.compile("^(?!." + tagName + ".).*został rozbity$");
+
+        Pattern r21_pl = Pattern.compile("zniszczył.+." + tagName + "."); //ok
+        Pattern r22_pl = Pattern.compile("^." + tagName + ".+został rozbity$"); //ok
+
+        Pattern r31_pl = Pattern.compile("." + tagName + ".+zestrzelił");
+        Pattern r32_pl = Pattern.compile("^(?!." + tagName + ".).+rozbił się$");
+
+        Pattern r41_pl = Pattern.compile("zestrzelił.+" + tagName + ".");
+        Pattern r42_pl = Pattern.compile("^." + tagName + ".+rozbił się$");
 
         boolean found;
 //        Log.d(TAG, "onDownloadComplete: starts. Status = " + status);
@@ -82,38 +100,50 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
                     if (idTemp > MainActivity.getIdHigh()) {
                         MainActivity.setIdHigh(idTemp);
 
-                        Matcher m11 = r11.matcher(message);
-                        Matcher m12 = r12.matcher(message);
+                        Matcher m11_en = r11_en.matcher(message);
+                        Matcher m12_en = r12_en.matcher(message);
 
-                        if (m11.find() || m12.find()) {
-                            System.out.println("================= Found 1 ============= : ");
+                        Matcher m11_pl = r11_pl.matcher(message);
+                        Matcher m12_pl = r12_pl.matcher(message);
+
+                        if (m11_en.find() || m12_en.find() || m11_pl.find() || m12_pl.find()) {
+                            Log.d(TAG, "onDownloadComplete: ================= Found 1 ============= ");
                             MainActivity.lowerEnemyTanks();
                             found = true;
                         }
 
-                        Matcher m21 = r21.matcher(message);
-                        Matcher m22 = r22.matcher(message);
+                        Matcher m21_en = r21_en.matcher(message);
+                        Matcher m22_en = r22_en.matcher(message);
 
-                        if (m21.find() || m22.find()) {
-                            System.out.println("================= Found 2 ============= : ");
+                        Matcher m21_pl = r21_pl.matcher(message);
+                        Matcher m22_pl = r22_pl.matcher(message);
+
+                        if (m21_en.find() || m22_en.find() || m21_pl.find() || m22_pl.find()) {
+                            Log.d(TAG, "onDownloadComplete: ================= Found 2 ============= ");
                             MainActivity.lowerOurTanks();
                             found = true;
                         }
 
-                        Matcher m31 = r31.matcher(message);
-                        Matcher m32 = r32.matcher(message);
+                        Matcher m31_en = r31_en.matcher(message);
+                        Matcher m32_en = r32_en.matcher(message);
 
-                        if (m31.find() || m32.find()) {
-                            System.out.println("================= Found 3 ============= : ");
+                        Matcher m31_pl = r31_pl.matcher(message);
+                        Matcher m32_pl = r32_pl.matcher(message);
+
+                        if (m31_en.find() || m32_en.find() || m31_pl.find() || m32_pl.find()) {
+                            Log.d(TAG, "onDownloadComplete: ================= Found 3 ============= ");
                             MainActivity.lowerEnemyPlanes();
                             found = true;
                         }
 
-                        Matcher m41 = r41.matcher(message);
-                        Matcher m42 = r42.matcher(message);
+                        Matcher m41_en = r41_en.matcher(message);
+                        Matcher m42_en = r42_en.matcher(message);
 
-                        if (m41.find() || m42.find()) {
-                            System.out.println("================= Found 4 ============= : ");
+                        Matcher m41_pl = r41_pl.matcher(message);
+                        Matcher m42_pl = r42_pl.matcher(message);
+
+                        if (m41_en.find() || m42_en.find() || m41_pl.find() || m42_pl.find()) {
+                            Log.d(TAG, "onDownloadComplete: ================= Found 4 ============= ");
                             MainActivity.lowerOurPlanes();
                             found = true;
                         }
