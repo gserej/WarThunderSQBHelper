@@ -3,6 +3,8 @@
 An Android application created to help tracking numbers of remaining ally and enemy units in War Thunder Squadron Battles.
 It parses JSON data streamed by the game and displays four numbers representing amount of remaining planes and ground units of each side.
 
+<img src="screenshot.png" height="480">
+
 ## Prerequisites:
 1. Connected to a local WiFi network with your phone/tablet.
 2. Check [the local IP address of the PC](https://kb.wisc.edu/27309) you are running War Thunder on.
