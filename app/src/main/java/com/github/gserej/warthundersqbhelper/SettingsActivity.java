@@ -1,5 +1,6 @@
 package com.github.gserej.warthundersqbhelper;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -51,6 +52,7 @@ public class SettingsActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(event);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +102,6 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             mEditIPText.setText(ipAddress);
         }
-
 
         InputFilter[] filters = new InputFilter[1];
         filters[0] = new InputFilter() {
@@ -207,7 +208,6 @@ public class SettingsActivity extends AppCompatActivity {
                 return false;
             }
         });
-
 
         mEditIPText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

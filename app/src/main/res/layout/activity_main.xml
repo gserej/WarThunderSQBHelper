@@ -15,7 +15,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/our_tank_logo"
-        tools:srcCompat="@drawable/our_tank_logo" />
+        tools:srcCompat="@drawable/our_tank_logo"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/enemyPlaneIcon"
@@ -25,7 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon"
         app:srcCompat="@drawable/enemy_plane_logo"
-        tools:srcCompat="@drawable/enemy_plane_logo" />
+        tools:srcCompat="@drawable/enemy_plane_logo"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/ourPlanesIcon"
@@ -35,7 +37,8 @@
         app:layout_constraintStart_toStartOf="@+id/ourTanksIcon"
         app:layout_constraintTop_toBottomOf="@+id/ourTanksIcon"
         app:srcCompat="@drawable/our_plane_logo"
-        tools:srcCompat="@drawable/our_plane_logo" />
+        tools:srcCompat="@drawable/our_plane_logo"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/buttonReset"
@@ -45,7 +48,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Reset"
+        android:text="@string/reset"
         app:layout_constraintBottom_toTopOf="@+id/textViewStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -63,7 +66,8 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toEndOf="@+id/ourTanksIcon"
-        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon" />
+        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/enemyTanksView"
@@ -76,7 +80,8 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@+id/enemyTanksIcon"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon" />
+        app:layout_constraintTop_toTopOf="@+id/ourTanksIcon"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/ourPlanesView"
@@ -89,7 +94,8 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toEndOf="@+id/ourPlanesIcon"
-        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon" />
+        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/enemyPlanesView"
@@ -102,7 +108,8 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@+id/enemyPlaneIcon"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon" />
+        app:layout_constraintTop_toTopOf="@+id/ourPlanesIcon"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/enemyTanksIcon"
@@ -112,7 +119,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ourTanksIcon"
         app:srcCompat="@drawable/enemy_tank_logo"
-        tools:srcCompat="@drawable/enemy_tank_logo" />
+        tools:srcCompat="@drawable/enemy_tank_logo"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textViewStatus"
@@ -121,7 +129,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:text="Connection status:"
+        android:text="@string/connection_status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

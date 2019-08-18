@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">War Thunder SQB Helper</string>
+    <string name="reset">Reset</string>
+    <string name="connection_status">Connection status:</string>
+    <string name="squadron_tag">Squadron tag</string>
+    <string name="enter_your_squadron_tag_above_case_sensitive_without_tag_frames">Enter your squadron tag above (case sensitive, without tag frames)</string>
+    <string name="the_ip_address_of_a_pc_running_war_thunder">the IP address of a PC running War Thunder</string>
+    <string name="click_here_to_find_out_how_to_find_your_local_ip_address">Click here to find out how to find your local IP address</string>
+    <string name="application_version_v0_2">Application Version: v0.2</string>
+    <string name="you_need_to_set_a_war_thunder_in_game_language_to_english_or_polish_in_order_to_run_this_application_correctly">You need to set a War Thunder in-game language to English or Polish in order to run this application correctly.</string>
 </resources>

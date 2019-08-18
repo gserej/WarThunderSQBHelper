@@ -171,6 +171,4 @@ public class ParseJSON extends AsyncTask<String, Void, List<Lines>> implements G
     interface OnDataAvailable {
         void onDataAvailable(List<Lines> data, DownloadStatus status);
     }
-
-
 }
