@@ -11,7 +11,7 @@ Some pieces of code are based on Tim Buchalka's Android Developer Course.
 2. Check [the local IP address of the PC](https://kb.wisc.edu/27309) you are running War Thunder on.
 3. In the application settings menu type in your squadron tag and that IP address.
 
-- If the numbers doesn't update at all, check if you can access 8111 port of this IP with a phone/tablet web browser.
+- If the numbers don't update at all, check if you can access 8111 port of this IP with a phone/tablet web browser.
  For example, if your IP address is 192.168.0.1, type in 192.168.0.1:8111.
  If the game is running and you don't see the gray page with game info, application won't work unless you configure your router/PC/local network.
 
