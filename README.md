@@ -2,6 +2,7 @@
 
 An Android application created to help tracking numbers of remaining ally and enemy units in War Thunder Squadron Battles.
 It parses JSON data streamed by the game and displays four numbers representing amount of remaining planes and ground units of each side.
+Some pieces of code are based on Tim Buchalka's Android Developer Course.
 
 <img src="screenshot.png" height="480">
 
@@ -14,10 +15,13 @@ It parses JSON data streamed by the game and displays four numbers representing 
  For example, if your IP address is 192.168.0.1, type in 192.168.0.1:8111.
  If the game is running and you don't see the gray page with game info, application won't work unless you configure your router/PC/local network.
 
-
 - At the moment the application works only when the War Thunder in-game language is set to English or Polish.
-If you want another language added, check the ParseJSON.java file for RegExp patterns.
+If you want to have another language added, check the ParseJSON.java file for RegExp patterns and create a pull request.
 - Press the "Reset" button every time you start a battle to reset numbers.
+
+## Legality
+WT support didn't answer me at all whether using this application breaches WT EULA but IMO there is no way they can know you are using it.
+There are also other applications like War Thunder's Betty that also uses JSON data and I'm yet to read that someone got banned because of it.
 
 ## Changelog
 - v0.2 - added Polish language support, fixed typos
