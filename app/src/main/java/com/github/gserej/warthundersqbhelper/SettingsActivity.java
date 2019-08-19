@@ -67,7 +67,6 @@ public class SettingsActivity extends AppCompatActivity {
         mEditTagText = findViewById(R.id.editSquadronName);
         mEditTagText.setEnabled(true);
 
-
         mEditIPText = findViewById(R.id.editIPAddress);
         mEditIPText.setEnabled(true);
 
@@ -76,7 +75,6 @@ public class SettingsActivity extends AppCompatActivity {
                 "Click here to find out how to find your local IP address</a>.";
         link.setText(Html.fromHtml(linkText));
         link.setMovementMethod(LinkMovementMethod.getInstance());
-
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         final SharedPreferences.Editor editor = pref.edit();
@@ -92,7 +90,6 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             mEditTagText.setText(tagName);
         }
-
 
         if (ipAddress.equals("")) {
             mEditIPText.setText("192.168.1.1");
@@ -118,8 +115,8 @@ public class SettingsActivity extends AppCompatActivity {
                         return "";
                     } else {
                         String[] splits = resultingTxt.split("\\.");
-                        for (int i = 0; i < splits.length; i++) {
-                            if (Integer.valueOf(splits[i]) > 255) {
+                        for (String split : splits) {
+                            if (Integer.valueOf(split) > 255) {
                                 return "";
                             }
                         }
@@ -128,6 +125,7 @@ public class SettingsActivity extends AppCompatActivity {
                 return null;
             }
         };
+
         mEditIPText.setFilters(filters);
 
         mEditTagText.setOnClickListener(new View.OnClickListener() {
