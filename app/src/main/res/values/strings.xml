@@ -5,8 +5,8 @@
     <string name="squadron_tag">Squadron tag</string>
     <string name="enter_squadron_tag_info">Enter your squadron tag above (case sensitive, without tag frames)</string>
     <string name="the_ip_address_of_a_pc_running_war_thunder">the IP address of a PC running War Thunder</string>
-    <string name="finding_out_local_ip_address_hint">Click here to find out how to find your local IP address</string>
-    <string name="application_version">Application Version: v0.2</string>
+    <string name="finding_out_local_ip_address_hint">Click here to read how to find your local IP address</string>
+    <string name="application_version">Application Version: v0.3</string>
     <string name="supported_languages_hint">You need to set a War Thunder in-game language to English or Polish in order to run this application correctly.</string>
     <string name="settings">Settings</string>
 </resources>

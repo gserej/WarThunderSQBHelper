@@ -53,10 +53,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ourPlanesView" />
+        app:layout_constraintTop_toBottomOf="@+id/friendlyPlanesView" />
 
     <TextView
-        android:id="@+id/ourTanksView"
+        android:id="@+id/friendlyTanksView"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -70,7 +70,7 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/enemyTanksView"
+        android:id="@+id/hostileTanksView"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -84,7 +84,7 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/ourPlanesView"
+        android:id="@+id/friendlyPlanesView"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -98,7 +98,7 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/enemyPlanesView"
+        android:id="@+id/hostilePlanesView"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"

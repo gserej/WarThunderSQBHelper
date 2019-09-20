@@ -23,34 +23,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static final String MY_PREFS_NAME = "MyPrefsFile";
 
-    EditText mEditTagText;
-    EditText mEditIPText;
-
-    String tagName;
-    String ipAddress;
-
-
-    public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            View v = getCurrentFocus();
-            if (v instanceof EditText) {
-                Rect outRect = new Rect();
-                v.getGlobalVisibleRect(outRect);
-                if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
-                    v.clearFocus();
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                }
-            }
-        }
-        return super.dispatchTouchEvent(event);
-    }
+    private EditText mEditTagText;
+    private EditText mEditIPText;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -59,7 +33,6 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         ActionBar actionBar = getSupportActionBar();
-
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
@@ -72,32 +45,36 @@ public class SettingsActivity extends AppCompatActivity {
 
         TextView link = findViewById(R.id.linkView);
         String linkText = "<a href='https://www.groovypost.com/howto/microsoft/windows-7/find-your-local-ip-address-windows-7-cmd/'>" +
-                "Click here to find out how to find your local IP address</a>.";
+                "Click here to find out how to determine your local IP address</a>.";
         link.setText(Html.fromHtml(linkText));
         link.setMovementMethod(LinkMovementMethod.getInstance());
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         final SharedPreferences.Editor editor = pref.edit();
 
-        tagName = pref.getString("squadronTag", "");
-        ipAddress = pref.getString("ipAddress", "");
+        String tagName = pref.getString("squadronTag", "");
+        String ipAddress = pref.getString("ipAddress", "");
 
-        if (tagName.equals("")) {
-            mEditTagText.setText("ACEpl");
-            editor.remove("squadronTag");
-            editor.putString("squadronTag", "ACEpl");
-            editor.apply();
-        } else {
-            mEditTagText.setText(tagName);
+        if (tagName != null) {
+            if (tagName.equals("")) {
+                mEditTagText.setText("ACEpl");
+                editor.remove("squadronTag");
+                editor.putString("squadronTag", "ACEpl");
+                editor.apply();
+            } else {
+                mEditTagText.setText(tagName);
+            }
         }
 
-        if (ipAddress.equals("")) {
-            mEditIPText.setText("192.168.1.1");
-            editor.remove("ipAddress");
-            editor.putString("ipAddress", "192.168.1.1");
-            editor.apply();
-        } else {
-            mEditIPText.setText(ipAddress);
+        if (ipAddress != null) {
+            if (ipAddress.equals("")) {
+                mEditIPText.setText("192.168.1.1");
+                editor.remove("ipAddress");
+                editor.putString("ipAddress", "192.168.1.1");
+                editor.apply();
+            } else {
+                mEditIPText.setText(ipAddress);
+            }
         }
 
         InputFilter[] filters = new InputFilter[1];
@@ -218,6 +195,28 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event);
     }
 
 }

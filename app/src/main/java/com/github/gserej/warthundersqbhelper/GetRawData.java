@@ -10,9 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
-enum DownloadStatus {IDLE, PROCESSING, NOT_INITIALISED, FAILED_OR_EMPTY, OK}
-
 class GetRawData extends AsyncTask<String, Void, String> {
 
     private static final String TAG = "GetRawData";
@@ -22,6 +19,10 @@ class GetRawData extends AsyncTask<String, Void, String> {
     GetRawData(OnDownloadComplete callback) {
         this.mDownloadStatus = DownloadStatus.IDLE;
         mCallback = callback;
+    }
+
+    interface OnDownloadComplete {
+        void onDownloadComplete(String data, DownloadStatus status);
     }
 
     void runInSameThread(String s) {
@@ -47,8 +48,8 @@ class GetRawData extends AsyncTask<String, Void, String> {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
-//            int response = connection.getResponseCode();
-//            Log.d(TAG, "doInBackground: The response code was " + response);
+            int response = connection.getResponseCode();
+            Log.d(TAG, "doInBackground: The response code was " + response);
 
             StringBuilder result = new StringBuilder();
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -57,10 +58,10 @@ class GetRawData extends AsyncTask<String, Void, String> {
             while (null != (line = reader.readLine())) {
                 result.append(line).append("\n");
             }
-            MainActivity.setStatus("Connection Status: OK");
-            mDownloadStatus = DownloadStatus.OK;
-            return result.toString();
 
+            mDownloadStatus = DownloadStatus.OK;
+            MainActivity.setStatus("Connection Status: OK");
+            return result.toString();
 
         } catch (MalformedURLException e) {
             Log.e(TAG, "doInBackground:  Invalid URL. " + e.getMessage());
@@ -93,10 +94,4 @@ class GetRawData extends AsyncTask<String, Void, String> {
             mCallback.onDownloadComplete(s, mDownloadStatus);
         }
     }
-
-    interface OnDownloadComplete {
-        void onDownloadComplete(String data, DownloadStatus status);
-    }
-
-
 }
