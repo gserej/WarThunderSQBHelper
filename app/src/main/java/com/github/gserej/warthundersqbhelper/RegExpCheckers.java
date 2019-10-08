@@ -28,7 +28,7 @@ class RegExpCheckers {
     RegExpCheckers(String tagName) {
 
         //hostile tank killed or crashed
-        r11_en = Pattern.compile(".?" + tagName + ".+destroyed");
+        r11_en = Pattern.compile(".?" + tagName + ".+destroyed (?!.?" + tagName + ".+|AAA)");
         r12_en = Pattern.compile("^(?!.?" + tagName + ".).*has been wrecked$");
 
         //friendly tank killed or crashed
@@ -36,7 +36,7 @@ class RegExpCheckers {
         r22_en = Pattern.compile("^.?" + tagName + ".+has been wrecked$");
 
         //hostile plane shot down or crashed
-        r31_en = Pattern.compile("." + tagName + ".+shot down");
+        r31_en = Pattern.compile("(." + tagName + "|AAA).+shot down (?!.?" + tagName + ".+)");
         r32_en = Pattern.compile("^(?!.?" + tagName + ").+has crashed.$");
 
         //friendly plane shot down or crashed
@@ -44,13 +44,13 @@ class RegExpCheckers {
         r42_en = Pattern.compile("^.?" + tagName + ".+has crashed.$");
 
 
-        r11_pl = Pattern.compile(".?" + tagName + ".+zniszczył");
+        r11_pl = Pattern.compile(".?" + tagName + ".+zniszczył (?!.?" + tagName + ".+|AAA)");
         r12_pl = Pattern.compile("^(?!.?" + tagName + ".).*został rozbity$");
 
         r21_pl = Pattern.compile("zniszczył.+" + tagName + ".");
         r22_pl = Pattern.compile("^.?" + tagName + ".+został rozbity$");
 
-        r31_pl = Pattern.compile("." + tagName + ".+zestrzelił");
+        r31_pl = Pattern.compile("(." + tagName + "|AAA).+zestrzelił (?!.?" + tagName + ".+)");
         r32_pl = Pattern.compile("^(?!.?" + tagName + ").+rozbił się$");
 
         r41_pl = Pattern.compile("zestrzelił.+" + tagName + ".");
@@ -60,8 +60,19 @@ class RegExpCheckers {
 
     static boolean checkRegExp(String message) {
 
-        boolean found = false;
+        if (isHostileTankDown(message))
+            return true;
 
+        if (isFriendlyTankDown(message))
+            return true;
+
+        if (isHostilePlaneDown(message))
+            return true;
+
+        return isFriendlyPlaneDown(message);
+    }
+
+    static boolean isHostileTankDown(String message) {
         Matcher m11_en = r11_en.matcher(message);
         Matcher m12_en = r12_en.matcher(message);
 
@@ -71,9 +82,12 @@ class RegExpCheckers {
         if (m11_en.find() || m12_en.find() || m11_pl.find() || m12_pl.find()) {
             Log.d(TAG, "RegExpCheckers: ================= Found 1 ============= ");
             MainActivity.lowerHostileTanks();
-            found = true;
+            return true;
         }
+        return false;
+    }
 
+    static boolean isFriendlyTankDown(String message) {
         Matcher m21_en = r21_en.matcher(message);
         Matcher m22_en = r22_en.matcher(message);
 
@@ -83,9 +97,12 @@ class RegExpCheckers {
         if (m21_en.find() || m22_en.find() || m21_pl.find() || m22_pl.find()) {
             Log.d(TAG, "RegExpCheckers: ================= Found 2 ============= ");
             MainActivity.lowerFriendlyTanks();
-            found = true;
+            return true;
         }
+        return false;
+    }
 
+    static boolean isHostilePlaneDown(String message) {
         Matcher m31_en = r31_en.matcher(message);
         Matcher m32_en = r32_en.matcher(message);
 
@@ -95,9 +112,12 @@ class RegExpCheckers {
         if (m31_en.find() || m32_en.find() || m31_pl.find() || m32_pl.find()) {
             Log.d(TAG, "RegExpCheckers: ================= Found 3 ============= ");
             MainActivity.lowerHostilePlanes();
-            found = true;
+            return true;
         }
+        return false;
+    }
 
+    static boolean isFriendlyPlaneDown(String message) {
         Matcher m41_en = r41_en.matcher(message);
         Matcher m42_en = r42_en.matcher(message);
 
@@ -107,10 +127,9 @@ class RegExpCheckers {
         if (m41_en.find() || m42_en.find() || m41_pl.find() || m42_pl.find()) {
             Log.d(TAG, "RegExpCheckers: ================= Found 4 ============= ");
             MainActivity.lowerFriendlyPlanes();
-            found = true;
+            return true;
         }
-
-        return found;
+        return false;
     }
 
 

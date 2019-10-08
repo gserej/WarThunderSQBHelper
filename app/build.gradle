@@ -7,7 +7,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
-        versionName "v0.3"
+        versionName "v0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     applicationVariants.all { variant ->
@@ -23,6 +23,9 @@ android {
                 }
             }
         }
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 }
 dependencies {

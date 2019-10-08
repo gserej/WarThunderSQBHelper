@@ -8,10 +8,7 @@ class Vehicles {
     private static int hostilePlanes;
 
     Vehicles() {
-        friendlyTanks = 24;
-        friendlyPlanes = 16;
-        hostileTanks = 24;
-        hostilePlanes = 16;
+        resetVehicles();
     }
 
     void resetVehicles() {

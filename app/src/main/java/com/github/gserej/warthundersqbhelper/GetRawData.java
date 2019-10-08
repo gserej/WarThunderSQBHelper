@@ -21,9 +21,6 @@ class GetRawData extends AsyncTask<String, Void, String> {
         mCallback = callback;
     }
 
-    interface OnDownloadComplete {
-        void onDownloadComplete(String data, DownloadStatus status);
-    }
 
     void runInSameThread(String s) {
         if (mCallback != null) {
@@ -80,7 +77,7 @@ class GetRawData extends AsyncTask<String, Void, String> {
                 try {
                     reader.close();
                 } catch (IOException e) {
-                    Log.e(TAG, "doInBackground: Error closing Stream " + e.getMessage());
+                    Log.e(TAG, "doInBackground: Error closing stream " + e.getMessage());
                 }
             }
         }

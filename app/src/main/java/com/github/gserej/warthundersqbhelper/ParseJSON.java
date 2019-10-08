@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-class ParseJSON extends AsyncTask<String, Void, Void> implements GetRawData.OnDownloadComplete {
+class ParseJSON extends AsyncTask<String, Void, Void> implements OnDownloadComplete {
 
     private static final String TAG = "ParseJSON";
     private static String tagName;
