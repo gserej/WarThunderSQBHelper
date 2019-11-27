@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +12,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String ID_HIGH = "ID_HIGH";
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         buttonReset.setOnClickListener(resetListener);
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences(SettingsActivity.MY_PREFS_NAME, MODE_PRIVATE);
-        ParseJSON.setTagName(pref.getString("squadronTag", "ACEpl"));
+        ParseJSON.setTagName(pref.getString("squadronTag", "ABCDE"));
         setIpAddressAndFullUrl(pref.getString("ipAddress", "192.168.1.1"));
 
         final Handler handlerDisplayData = new Handler();

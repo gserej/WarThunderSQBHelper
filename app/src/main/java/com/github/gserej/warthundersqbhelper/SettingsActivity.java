@@ -1,13 +1,10 @@
 package com.github.gserej.warthundersqbhelper;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -18,6 +15,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -57,9 +57,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         if (tagName != null) {
             if (tagName.equals("")) {
-                mEditTagText.setText("ACEpl");
+                mEditTagText.setText("ABCDE");
                 editor.remove("squadronTag");
-                editor.putString("squadronTag", "ACEpl");
+                editor.putString("squadronTag", "ABCDE");
                 editor.apply();
             } else {
                 mEditTagText.setText(tagName);
@@ -198,7 +198,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
