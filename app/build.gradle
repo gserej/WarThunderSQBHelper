@@ -1,6 +1,21 @@
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+
+
 android {
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+
+        }
+    }
     compileSdkVersion 28
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -10,6 +25,7 @@ android {
         versionCode 1
         versionName "v0.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
     applicationVariants.all { variant ->
         variant.resValue "string", "versionName", variant.versionName
@@ -23,6 +39,7 @@ android {
                     outputFileName = "WT_SQB_Helper_${defaultConfig.versionName}.apk"
                 }
             }
+            signingConfig signingConfigs.release
         }
     }
     testOptions {
