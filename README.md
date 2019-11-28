@@ -27,6 +27,7 @@ There are also other applications, like War Thunder's Betty, that also uses JSON
 EasyAntiCheat also shouldn't affect it.
 
 ## Changelog
+- v0.6 - create dedicated landscape mode, ad banner integrated
 - v0.5 - migrate to androidX
 - v0.4 - fixed the bug that caused an incorrect calculation when a plane was destroyed by an AAA (anti-aircraft artillery)
 - v0.3 - major code cleanup, some tests added
@@ -34,4 +35,4 @@ EasyAntiCheat also shouldn't affect it.
 - v0.1 - first version
 
 ## Download
-[Here](https://github.com/gserej/WarThunderSQBHelper/raw/master/app/release/WT_SQB_Helper_v0.5.apk)
+[Here](https://github.com/gserej/WarThunderSQBHelper/raw/master/app/release/WT_SQB_Helper_v0.6.apk)

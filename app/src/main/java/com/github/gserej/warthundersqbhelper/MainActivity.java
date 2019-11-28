@@ -15,6 +15,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 public class MainActivity extends AppCompatActivity {
     private static final String ID_HIGH = "ID_HIGH";
     private static final String TAG = "MainActivity";
@@ -28,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView displayHostileTanks;
     private TextView displayHostilePlanes;
     private TextView mConnectionStatus;
+    private AdView mAdView;
 
     public static void setStatus(String status) {
         MainActivity.status = status;
@@ -71,6 +78,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         displayFriendlyTanks = findViewById(R.id.friendlyTanksView);
         displayFriendlyPlanes = findViewById(R.id.friendlyPlanesView);
